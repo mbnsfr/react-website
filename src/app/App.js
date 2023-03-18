@@ -2,7 +2,8 @@ import '../style/main/App.css';
 import { Button, DatePicker, Space } from "antd";
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import React from 'react';
-import { useTranslation } from 'react-i18next';
+import i18n from '../translations/i18n';
+import { withNamespaces } from 'react-i18next';
 
 const Home = () => {
   return <h2>Home</h2>;
@@ -17,20 +18,27 @@ const About = () => {
 };
 
 
-const App = () => {
-  const { t } = useTranslation();
+const App = ({ t }) => {
+
+  const changeLanguage = (lng) => {
+    i18n.changeLanguage(lng);
+  }
+
   return (
     <Router>
       <div>
         <div>
-          <Link to="/">{t('welcome')}</Link>
+          <Link to="/">welcome</Link>
           <Link to="/gallery">
             <Space>
               <DatePicker />
               <Button type="primary">Primary Button</Button>
             </Space>
           </Link>
-          <Link to="/about">About</Link>
+          <Link to="/about">
+            <button onClick={() => changeLanguage('fa')}>fa</button>
+            <button onClick={() => changeLanguage('en')}>en</button>
+            <h1>{t('welcome')}</h1></Link>
         </div>
         <Routes>
           <Route path="/" element={<Home />} />
@@ -42,4 +50,4 @@ const App = () => {
   );
 };
 
-export default App;
+export default withNamespaces()(App);
