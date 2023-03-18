@@ -3,11 +3,9 @@ import ReactDOM from 'react-dom/client';
 import './style/main/index.less';
 import App from './app/App.js';
 import reportWebVitals from './reportWebVitals';
-// import './style/antd/antd.customize.less';
-// import '../node_modules';
-
 import '../node_modules/antd/lib/style/themes/dark.less';
 import '../node_modules/antd/dist/antd.less';
+import './translations/i18n';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(

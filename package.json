@@ -41,8 +41,11 @@
     "antd": "4.24.8",
     "craco-antd": "^2.0.0",
     "eslint": "^8.36.0",
-    "i18n": "^0.15.1",
+    "i18next": "^22.4.12",
+    "i18next-browser-languagedetector": "^7.0.1",
+    "momentsjs": "^5.1.6",
     "prettier": "^2.8.4",
+    "react-i18next": "^12.2.0",
     "react-loading-skeleton": "^3.2.0",
     "react-router-dom": "^6.9.0"
   }

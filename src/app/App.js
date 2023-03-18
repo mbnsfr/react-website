@@ -1,8 +1,8 @@
 import '../style/main/App.css';
-import React from "react";
 import { Button, DatePicker, Space } from "antd";
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
-
+import React from 'react';
+import { useTranslation } from 'react-i18next';
 
 const Home = () => {
   return <h2>Home</h2>;
@@ -18,11 +18,12 @@ const About = () => {
 
 
 const App = () => {
+  const { t } = useTranslation();
   return (
     <Router>
       <div>
         <div>
-          <Link to="/">Home</Link>
+          <Link to="/">{t('welcome')}</Link>
           <Link to="/gallery">
             <Space>
               <DatePicker />
