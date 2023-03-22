@@ -1,4 +1,5 @@
 const CracoAntDesignPlugin = require("craco-antd");
+const path = require("path");
 
 module.exports = {
     eslint: {
@@ -22,10 +23,10 @@ module.exports = {
         {
             plugin: CracoAntDesignPlugin,
             options: {
-                customizeTheme: {
-                    "@primary-color": "#1DA57A",
-                    "@link-color": "#1DA57A",
-                },
+                customizeThemeLessPath: path.join(
+                    __dirname,
+                    "src/style/antd/antd.customize.less"
+                ),
             },
         },
     ],
