@@ -1,4 +1,4 @@
-import '../style/main/App.css';
+import '../style/main/App.less';
 import { Button, DatePicker, Space } from "antd";
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import React from 'react';
