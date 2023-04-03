@@ -6,6 +6,11 @@ import reportWebVitals from './reportWebVitals';
 import '../node_modules/antd/lib/style/themes/dark.less';
 import '../node_modules/antd/dist/antd.less';
 import './translations/i18n';
+import Parse from "parse";
+
+Parse.initialize("backmyAppId", "", "backmyMasterKey");
+Parse.masterKey = "backmyMasterKey";
+Parse.serverURL = "http://localhost:1337/parse";
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(

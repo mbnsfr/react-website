@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import React from 'react';
 import i18n from '../translations/i18n';
 import { withNamespaces } from 'react-i18next';
+import controller from "./App.jsx";
 
 const Home = () => {
   return <h2>Home</h2>;
@@ -20,6 +21,10 @@ const About = () => {
 
 const App = ({ t }) => {
 
+  const { entertainment } = controller();
+
+  // var a = entertainment[0].get("sample")
+  console.log(entertainment)
   const changeLanguage = (lng) => {
     i18n.changeLanguage(lng);
   }
@@ -37,7 +42,12 @@ const App = ({ t }) => {
           </Link>
           <Link to="/about">
             <button onClick={() => changeLanguage('fa')}>fa</button>
-            <button onClick={() => changeLanguage('en')}>en</button>
+            {entertainment &&
+              entertainment.map((item) => {
+                return (
+                  <button onClick={() => changeLanguage('en')}>{item.get("sample")}</button>
+                );
+              })}
             <h1>{t('welcome')}</h1></Link>
         </div>
         <Routes>
