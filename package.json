@@ -38,6 +38,7 @@
   },
   "devDependencies": {
     "@craco/craco": "^7.1.0",
+    "@react-spring/parallax": "^9.7.1",
     "antd": "4.24.8",
     "craco-antd": "^2.0.0",
     "dayjs": "^1.11.7",

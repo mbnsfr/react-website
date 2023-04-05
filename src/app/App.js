@@ -5,6 +5,7 @@ import React from 'react';
 import i18n from '../translations/i18n';
 import { withNamespaces } from 'react-i18next';
 import controller from "./App.jsx";
+import Spring from "../components/spring"
 
 const Home = () => {
   return <h2>Home</h2>;
@@ -23,40 +24,41 @@ const App = ({ t }) => {
 
   const { entertainment } = controller();
 
-  // var a = entertainment[0].get("sample")
-  console.log(entertainment)
   const changeLanguage = (lng) => {
     i18n.changeLanguage(lng);
   }
 
   return (
-    <Router>
-      <div>
+    <>
+      <Spring pages={3} item={[{ offset: 1, speed: 1, style: { backgroundColor: "#232946" } }, { offset: 2, speed: 1, style: { backgroundColor: "#8bd3dd" } }]} />
+      <Router>
         <div>
-          <Link to="/">welcome</Link>
-          <Link to="/gallery">
-            <Space>
-              <DatePicker />
-              <Button type="primary">Primary Button</Button>
-            </Space>
-          </Link>
-          <Link to="/about">
-            <button onClick={() => changeLanguage('fa')}>fa</button>
-            {entertainment &&
-              entertainment.map((item) => {
-                return (
-                  <button onClick={() => changeLanguage('en')}>{item.get("sample")}</button>
-                );
-              })}
-            <h1>{t('welcome')}</h1></Link>
+          <div>
+            <Link to="/">welcome</Link>
+            <Link to="/gallery">
+              <Space>
+                <DatePicker />
+                <Button type="primary">Primary Button</Button>
+              </Space>
+            </Link>
+            <Link to="/about">
+              <button onClick={() => changeLanguage('fa')}>fa</button>
+              {entertainment &&
+                entertainment.map((item) => {
+                  return (
+                    <button onClick={() => changeLanguage('en')}>{item.get("sample")}</button>
+                  );
+                })}
+              <h1>{t('welcome')}</h1></Link>
+          </div>
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/gallery" element={<Gallery />} />
+          </Routes>
         </div>
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/gallery" element={<Gallery />} />
-        </Routes>
-      </div>
-    </Router>
+      </Router>
+    </>
   );
 };
 
