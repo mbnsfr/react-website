@@ -15,7 +15,7 @@ export default () => {
     };
 
     getEntertainment();
-  });
+  },[]);
   return {
     entertainment,
   };

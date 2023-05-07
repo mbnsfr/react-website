@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './style/main/index.less';
-import App from './app/App.js';
+import App from './modules/App.js';
 import reportWebVitals from './reportWebVitals';
 import '../node_modules/antd/lib/style/themes/dark.less';
 import '../node_modules/antd/dist/antd.less';
